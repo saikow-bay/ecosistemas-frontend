@@ -37,7 +37,7 @@ export default function Page18Lab() {
     <div className="min-h-screen" style={{ background: THEME.bg, color: THEME.ink }}>
       <header className="p-4">
         <h1 className="text-xl font-bold tracking-tight">
-          <span style={{ color: THEME.accent }}>18–24</span> • Cambio climático y fotosíntesis (versión simple)
+          <span style={{ color: THEME.accent }}>18–24</span> • Fotosinteisis y Cambio Climatio
         </h1>
       </header>
 

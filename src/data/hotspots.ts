@@ -85,7 +85,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 2,
-    title: "2 · Canopy Highways",
+    title: "2 · Fotosintesis y Cambio Climatico",
     x: 60,
     y: 45,
     color: "#4caf50",
