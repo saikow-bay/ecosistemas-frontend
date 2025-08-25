@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Fuente personalizada === */
+@font-face {
+  font-family: 'Monorama';
+  src: url('./fonts/Monorama-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===============================
+   Paleta global (3 colores)
+   =============================== */
+:root {
+  --color-fondo: #CFCFCF;   /* gris claro */
+  --color-texto: #111111;   /* negro técnico */
+  --color-acento: #FF4B36;  /* rojo–naranja */
+}
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Monorama', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-texto);
+  }
+
+  p {
+    line-height: 1.6;
+    color: var(--color-texto);
+  }
+
+  ::selection {
+    background: rgba(255, 75, 54, 0.25); /* acento con transparencia */
+  }
+}
