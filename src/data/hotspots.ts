@@ -56,7 +56,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 1,
-    title: "1 · Understory Secrets",
+    title: "1 · Proximamente",
     x: 35,
     y: 85,
     color: "#2f6d3b",
@@ -114,7 +114,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 3,
-    title: "3 · Water Cycles",
+    title: "3 · Proximamente",
     x: 25,
     y: 30,
     color: "#4caf50",
@@ -143,7 +143,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 4,
-    title: "4 · Predator Networks",
+    title: "4 · Proximamente",
     x: 70,
     y: 70,
     color: "#d4a017",
@@ -172,7 +172,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 5,
-    title: "5 · Human Impact",
+    title: "5 · Proximamente",
     x: 85,
     y: 25,
     color: "#6b4423",
@@ -201,7 +201,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 6,
-    title: "6 · Future Pathways",
+    title: "6 · Proximamente",
     x: 50,
     y: 15,
     color: "#d4a017",
