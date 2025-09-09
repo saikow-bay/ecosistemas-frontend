@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import HotspotMap from './components/HotspotMap';
 import Chapter from './pages/Chapter';
 import ZeroLab from './pages/ZeroLab';
-import Page18Lab from './pages/Page18Lab'; // ⬅️ NUEVO
+import Page18Lab from './pages/Page18Lab'; // ⬅️ EXISTENTE
+import PageInfoFotosintesisResp from './pages/PageInfoFotosintesisResp'; // ⬅️ EXISTENTE
+import PageInfoFotosintesis4 from './pages/PageInfoFotosintesis4';
 
 // Paleta consistente
 const THEME = { fondo: '#CFCFCF', tinta: '#111111', acento: '#FF4B36' };
@@ -54,7 +56,9 @@ const MapScreen: React.FC = () => {
   const navigate = useNavigate();
   const goChapter = (id: number) => navigate(`/capitulo/${id}`);
   const goZero = () => navigate('/cero');
-  const goPage18 = () => navigate('/pagina-18'); // ⬅️ NUEVO
+  const goPage18 = () => navigate('/pagina-18');     // id=2
+  const goFotosintesis = () => navigate('/fotosintesis'); // id=3  ⬅️ NUEVO
+  const goFotosintesis4 = () => navigate('/fotosintesis-4'); // ← NUEVO
 
   return (
     <motion.div
@@ -67,7 +71,9 @@ const MapScreen: React.FC = () => {
       <HotspotMap
         onNavigateToChapter={goChapter}
         onNavigateToZero={goZero}
-        onNavigateToPage18={goPage18} // ⬅️ NUEVO
+        onNavigateToPage18={goPage18}
+        onNavigateToFotosintesis={goFotosintesis} // ⬅️ NUEVO
+        onNavigateToFotosintesis4={goFotosintesis4}  // <-- FALTABA
       />
 
       <motion.div
@@ -94,7 +100,9 @@ const App: React.FC = () => {
           <Route path="/mapa" element={<MapScreen />} />
           <Route path="/capitulo/:id" element={<Chapter />} />
           <Route path="/cero" element={<ZeroLab />} />
-          <Route path="/pagina-18" element={<Page18Lab />} /> {/* ⬅️ NUEVO */}
+          <Route path="/pagina-18" element={<Page18Lab />} />
+          <Route path="/fotosintesis" element={<PageInfoFotosintesisResp />} />
+          <Route path="/fotosintesis-4" element={<PageInfoFotosintesis4 />} />
         </Routes>
       </div>
     </Router>

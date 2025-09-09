@@ -16,10 +16,18 @@ const THEME = {
 interface HotspotMapProps {
   onNavigateToChapter: (id: number) => void;
   onNavigateToZero?: () => void;
-  onNavigateToPage18?: () => void; // ⬅️ usamos esto para /pagina-18
+  onNavigateToPage18?: () => void;          // /pagina-18
+  onNavigateToFotosintesis?: () => void;    // /fotosintesis (punto 3)
+  onNavigateToFotosintesis4?: () => void;   // /fotosintesis-4 (punto 4) y ahora punto 1
 }
 
-const HotspotMap: React.FC<HotspotMapProps> = ({ onNavigateToChapter, onNavigateToZero, onNavigateToPage18 }) => {
+const HotspotMap: React.FC<HotspotMapProps> = ({
+  onNavigateToChapter,
+  onNavigateToZero,
+  onNavigateToPage18,
+  onNavigateToFotosintesis,
+  onNavigateToFotosintesis4,
+}) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
@@ -55,23 +63,39 @@ const HotspotMap: React.FC<HotspotMapProps> = ({ onNavigateToChapter, onNavigate
 
   const handleClickHotspot = useCallback(
     (chapter: Chapter) => {
-      // Navegaciones directas
+      // id=1 → /fotosintesis-4 (tu nueva página asignada al punto 1)
+      if (chapter.id === 1 && onNavigateToFotosintesis4) {
+        onNavigateToFotosintesis4();
+        return;
+      }
+      // id=0 → /cero (si lo usas)
       if (chapter.id === 0 && onNavigateToZero) {
         onNavigateToZero();
         return;
       }
-      // ✅ SOLO el id 2 va a /pagina-18
+      // id=2 → /pagina-18
       if (chapter.id === 2 && onNavigateToPage18) {
         onNavigateToPage18();
         return;
       }
-      // Resto abre panel o va a capítulo
+      // id=3 → /fotosintesis
+      if (chapter.id === 3 && onNavigateToFotosintesis) {
+        onNavigateToFotosintesis();
+        return;
+      }
+      // id=4 → /fotosintesis-4 (sigue habilitado por si lo quieres)
+      if (chapter.id === 4 && onNavigateToFotosintesis4) {
+        onNavigateToFotosintesis4();
+        return;
+      }
+
+      // Resto abre panel o va a capítulo (tu elección)
       setSelectedChapter(chapter);
       setIsPanelOpen(true);
-      // Si prefieres ir directo sin panel:
+      // o directo:
       // onNavigateToChapter(chapter.id);
     },
-    [onNavigateToZero, onNavigateToPage18]
+    [onNavigateToZero, onNavigateToPage18, onNavigateToFotosintesis, onNavigateToFotosintesis4]
   );
 
   const handleClosePanel = useCallback(() => {

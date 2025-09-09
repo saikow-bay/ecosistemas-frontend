@@ -56,7 +56,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 1,
-    title: "1 · Proximamente",
+    title: "1 · Organismos fotosintéticos",
     x: 35,
     y: 85,
     color: "#2f6d3b",
@@ -114,7 +114,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 3,
-    title: "3 · Proximamente",
+    title: "3 · Fotosintesis y Respiracion Celular",
     x: 25,
     y: 30,
     color: "#4caf50",
