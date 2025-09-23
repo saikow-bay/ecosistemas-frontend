@@ -16,9 +16,11 @@ const THEME = {
 interface HotspotMapProps {
   onNavigateToChapter: (id: number) => void;
   onNavigateToZero?: () => void;
-  onNavigateToPage18?: () => void;          // /pagina-18
-  onNavigateToFotosintesis?: () => void;    // /fotosintesis (punto 3)
-  onNavigateToFotosintesis4?: () => void;   // /fotosintesis-4 (punto 4) y ahora punto 1
+  onNavigateToPage18?: () => void;
+  onNavigateToFotosintesis?: () => void;
+  onNavigateToFotosintesis4?: () => void;
+  onNavigateToProduccionFotosintetica?: () => void;
+  onNavigateToEnergiaSolar?: () => void; // <-- 🟢 Línea agregada
 }
 
 const HotspotMap: React.FC<HotspotMapProps> = ({
@@ -27,6 +29,8 @@ const HotspotMap: React.FC<HotspotMapProps> = ({
   onNavigateToPage18,
   onNavigateToFotosintesis,
   onNavigateToFotosintesis4,
+  onNavigateToProduccionFotosintetica,
+  onNavigateToEnergiaSolar // <-- 🟢 Línea agregada
 }) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
@@ -63,39 +67,35 @@ const HotspotMap: React.FC<HotspotMapProps> = ({
 
   const handleClickHotspot = useCallback(
     (chapter: Chapter) => {
-      // id=1 → /fotosintesis-4 (tu nueva página asignada al punto 1)
       if (chapter.id === 1 && onNavigateToFotosintesis4) {
         onNavigateToFotosintesis4();
         return;
       }
-      // id=0 → /cero (si lo usas)
       if (chapter.id === 0 && onNavigateToZero) {
         onNavigateToZero();
         return;
       }
-      // id=2 → /pagina-18
       if (chapter.id === 2 && onNavigateToPage18) {
         onNavigateToPage18();
         return;
       }
-      // id=3 → /fotosintesis
       if (chapter.id === 3 && onNavigateToFotosintesis) {
         onNavigateToFotosintesis();
         return;
       }
-      // id=4 → /fotosintesis-4 (sigue habilitado por si lo quieres)
-      if (chapter.id === 4 && onNavigateToFotosintesis4) {
-        onNavigateToFotosintesis4();
+      if (chapter.id === 4 && onNavigateToProduccionFotosintetica) {
+        onNavigateToProduccionFotosintetica();
+        return;
+      }
+      if (chapter.id === 5 && onNavigateToEnergiaSolar) { // <-- 🟢 Línea agregada
+        onNavigateToEnergiaSolar();
         return;
       }
 
-      // Resto abre panel o va a capítulo (tu elección)
       setSelectedChapter(chapter);
       setIsPanelOpen(true);
-      // o directo:
-      // onNavigateToChapter(chapter.id);
     },
-    [onNavigateToZero, onNavigateToPage18, onNavigateToFotosintesis, onNavigateToFotosintesis4]
+    [onNavigateToZero, onNavigateToPage18, onNavigateToFotosintesis, onNavigateToFotosintesis4, onNavigateToProduccionFotosintetica, onNavigateToEnergiaSolar] // <-- 🟢 Línea agregada
   );
 
   const handleClosePanel = useCallback(() => {
@@ -236,7 +236,6 @@ const HotspotMap: React.FC<HotspotMapProps> = ({
         />
       </div>
 
-      {/* Si usas panel de preview para capítulos, lo puedes reactivar aquí y llamar handleOpenChapter */}
     </div>
   );
 };

@@ -143,7 +143,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 4,
-    title: "4 · Proximamente",
+    title: "4 · Produccion Fotosintetica",
     x: 70,
     y: 70,
     color: "#d4a017",
@@ -172,7 +172,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 5,
-    title: "5 · Proximamente",
+    title: "5 · Energia Solar",
     x: 85,
     y: 25,
     color: "#6b4423",

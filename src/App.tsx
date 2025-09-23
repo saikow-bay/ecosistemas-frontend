@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import HotspotMap from './components/HotspotMap';
 import Chapter from './pages/Chapter';
 import ZeroLab from './pages/ZeroLab';
-import Page18Lab from './pages/Page18Lab'; // ⬅️ EXISTENTE
-import PageInfoFotosintesisResp from './pages/PageInfoFotosintesisResp'; // ⬅️ EXISTENTE
+import Page18Lab from './pages/Page18Lab';
+import PageInfoFotosintesisResp from './pages/PageInfoFotosintesisResp';
 import PageInfoFotosintesis4 from './pages/PageInfoFotosintesis4';
+import ProduccionFotosintetica from './pages/ProduccionFotosintetica';
+import EnergiaSolar from './pages/EnergiaSolar'; // <-- 🟢 Línea agregada
 
 // Paleta consistente
 const THEME = { fondo: '#CFCFCF', tinta: '#111111', acento: '#FF4B36' };
@@ -56,9 +58,11 @@ const MapScreen: React.FC = () => {
   const navigate = useNavigate();
   const goChapter = (id: number) => navigate(`/capitulo/${id}`);
   const goZero = () => navigate('/cero');
-  const goPage18 = () => navigate('/pagina-18');     // id=2
-  const goFotosintesis = () => navigate('/fotosintesis'); // id=3  ⬅️ NUEVO
-  const goFotosintesis4 = () => navigate('/fotosintesis-4'); // ← NUEVO
+  const goPage18 = () => navigate('/pagina-18');
+  const goFotosintesis = () => navigate('/fotosintesis');
+  const goFotosintesis4 = () => navigate('/fotosintesis-4');
+  const goProduccionFotosintetica = () => navigate('/ProduccionFotosintetica');
+  const goEnergiaSolar = () => navigate('/energia-solar'); // <-- 🟢 Línea agregada
 
   return (
     <motion.div
@@ -72,8 +76,10 @@ const MapScreen: React.FC = () => {
         onNavigateToChapter={goChapter}
         onNavigateToZero={goZero}
         onNavigateToPage18={goPage18}
-        onNavigateToFotosintesis={goFotosintesis} // ⬅️ NUEVO
-        onNavigateToFotosintesis4={goFotosintesis4}  // <-- FALTABA
+        onNavigateToFotosintesis={goFotosintesis}
+        onNavigateToFotosintesis4={goFotosintesis4}
+        onNavigateToProduccionFotosintetica={goProduccionFotosintetica}
+        onNavigateToEnergiaSolar={goEnergiaSolar} // <-- 🟢 Línea agregada
       />
 
       <motion.div
@@ -103,6 +109,8 @@ const App: React.FC = () => {
           <Route path="/pagina-18" element={<Page18Lab />} />
           <Route path="/fotosintesis" element={<PageInfoFotosintesisResp />} />
           <Route path="/fotosintesis-4" element={<PageInfoFotosintesis4 />} />
+          <Route path="/ProduccionFotosintetica" element={<ProduccionFotosintetica />} />
+          <Route path="/energia-solar" element={<EnergiaSolar />} /> {/* <-- 🟢 Línea agregada */}
         </Routes>
       </div>
     </Router>
@@ -110,4 +118,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
