@@ -201,7 +201,7 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     id: 6,
-    title: "6 · Proximamente",
+    title: "6 · Biomas",
     x: 50,
     y: 15,
     color: "#d4a017",

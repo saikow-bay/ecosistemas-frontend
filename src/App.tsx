@@ -9,6 +9,8 @@ import PageInfoFotosintesisResp from './pages/PageInfoFotosintesisResp';
 import PageInfoFotosintesis4 from './pages/PageInfoFotosintesis4';
 import ProduccionFotosintetica from './pages/ProduccionFotosintetica';
 import EnergiaSolar from './pages/EnergiaSolar'; // <-- 🟢 Línea agregada
+import Biomas from './pages/Biomas';
+
 
 // Paleta consistente
 const THEME = { fondo: '#CFCFCF', tinta: '#111111', acento: '#FF4B36' };
@@ -63,6 +65,8 @@ const MapScreen: React.FC = () => {
   const goFotosintesis4 = () => navigate('/fotosintesis-4');
   const goProduccionFotosintetica = () => navigate('/ProduccionFotosintetica');
   const goEnergiaSolar = () => navigate('/energia-solar'); // <-- 🟢 Línea agregada
+  const goBiomas = () => navigate('/biomas');
+
 
   return (
     <motion.div
@@ -80,6 +84,7 @@ const MapScreen: React.FC = () => {
         onNavigateToFotosintesis4={goFotosintesis4}
         onNavigateToProduccionFotosintetica={goProduccionFotosintetica}
         onNavigateToEnergiaSolar={goEnergiaSolar} // <-- 🟢 Línea agregada
+        onNavigateToBiomas={goBiomas}
       />
 
       <motion.div
@@ -111,6 +116,7 @@ const App: React.FC = () => {
           <Route path="/fotosintesis-4" element={<PageInfoFotosintesis4 />} />
           <Route path="/ProduccionFotosintetica" element={<ProduccionFotosintetica />} />
           <Route path="/energia-solar" element={<EnergiaSolar />} /> {/* <-- 🟢 Línea agregada */}
+          <Route path="/biomas" element={<Biomas />} />
         </Routes>
       </div>
     </Router>

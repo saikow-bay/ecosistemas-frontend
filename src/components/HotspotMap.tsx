@@ -21,6 +21,7 @@ interface HotspotMapProps {
   onNavigateToFotosintesis4?: () => void;
   onNavigateToProduccionFotosintetica?: () => void;
   onNavigateToEnergiaSolar?: () => void; // <-- 🟢 Línea agregada
+  onNavigateToBiomas?: () => void; 
 }
 
 const HotspotMap: React.FC<HotspotMapProps> = ({
@@ -30,7 +31,8 @@ const HotspotMap: React.FC<HotspotMapProps> = ({
   onNavigateToFotosintesis,
   onNavigateToFotosintesis4,
   onNavigateToProduccionFotosintetica,
-  onNavigateToEnergiaSolar // <-- 🟢 Línea agregada
+  onNavigateToEnergiaSolar, // <-- 🟢 Línea agregada
+  onNavigateToBiomas 
 }) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
@@ -91,6 +93,10 @@ const HotspotMap: React.FC<HotspotMapProps> = ({
         onNavigateToEnergiaSolar();
         return;
       }
+      if (chapter.id === 6 && onNavigateToBiomas) {
+        onNavigateToBiomas();
+        return;
+      }      
 
       setSelectedChapter(chapter);
       setIsPanelOpen(true);
